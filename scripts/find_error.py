@@ -15,7 +15,8 @@ def error_search(log_file):
     file.close()
   return returned_errors
 def file_output(returned_errors):
-  with open(os.path.expanduser('~') + '/os/week4/data/errors_found.log', 'w') as file:
+  user =os.getenv('USER')
+  with open(os.path.expanduser('~') + '/home/{}/Log_Files/data/errors_found.log'.format(user), 'w') as file:
     for error in returned_errors:
       file.write(error)
     file.close()
